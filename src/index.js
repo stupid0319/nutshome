@@ -1,8 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import configureStore from './store/configureStore'
+import Root from './containers/Root'
+import './css/App.css'
+import './css/index.css'
+import './fontawesome/web-fonts-with-css/css/fontawesome-all.min.css'
+import './css/styles.min.css'
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore();
+
+ReactDOM.render(
+  <Router>
+    <Root store={store} />
+  </Router>,
+  document.getElementById('root')
+);
+
 registerServiceWorker();
