@@ -1,12 +1,10 @@
-import { SETMENU_COLLAPSE } from '../actions'
+import { SET_MENU_COLLAPSE } from '../actions'
 
-const MenuTrigger = (state = true ,action) => {
+export const menuVisible = (state = true ,action) => {
   switch (action.type) {
-  case SETMENU_COLLAPSE:
-    return action.isCollapse
+  case SET_MENU_COLLAPSE:
+    return action.menuVisible
   default:
     return state
   }
 }
-
-export default MenuTrigger

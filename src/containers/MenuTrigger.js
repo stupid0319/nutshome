@@ -4,18 +4,18 @@ import { connect } from 'react-redux'
 import { setMenuCollapse } from '../actions'
 
 const mapStateToProps = (state) => ({
-  isCollapse: state.MenuTrigger
+  menuVisible: state.menuVisible
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick: isCollapse => dispatch(setMenuCollapse(isCollapse))
+  onClick: menuVisible => dispatch(setMenuCollapse(menuVisible))
 })
 
-const MenuTrigger = ({ onClick, isCollapse}) => (
+const MenuTrigger = ({ onClick, menuVisible}) => (
   <a
   className="menu-trigger animated fadeInDown"
   role="button"
-  onClick = {() => onClick(!isCollapse)}
+  onClick = {() => onClick(!menuVisible)}
   >
     <span className="bar" />
     <span className="bar" />
@@ -24,7 +24,7 @@ const MenuTrigger = ({ onClick, isCollapse}) => (
 )
 
 MenuTrigger.PropTypes = {
-  isCollapse: PropTypes.bool.isRequired,
+  menuVisible: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
 }
 

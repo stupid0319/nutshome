@@ -4,7 +4,8 @@ import MenuTrigger from './MenuTrigger'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => ({
-  mainClassName: state.MenuTrigger? "container-menu-open":"container-menu-closed"
+  mainClassName: state.menuVisible? "container-menu-open":"container-menu-closed",
+  dashboard: JSON.stringify(state.dashboard)
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -17,11 +18,12 @@ var divStyle = {
   msTransition: 'all' // 'ms' is the only lowercase vendor prefix
 };
 
-const Home = ({ mainClassName }) => (
+const Home = ({ mainClassName, dashboard }) => (
   <main className={`container page-fadein left-container page-home ${mainClassName}`}>
     <div className="row">
       <section className="sidebar col-md-5 col-sm-12" style={divStyle}>
       <MenuTrigger/>
+      <div>{dashboard}</div>
       </section>
       <section className="col-md-7 col-sm-12 col-md-offset-5 main-content modal-container">
       </section>
