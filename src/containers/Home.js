@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state, ownProps) => ({
   mainClassName: state.menuVisible? "container-menu-open":"container-menu-closed",
-  dashboard: JSON.stringify(state.dashboard)
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -23,7 +22,7 @@ const Home = ({ mainClassName, dashboard }) => (
     <div className="row">
       <section className="sidebar col-md-5 col-sm-12" style={divStyle}>
       <MenuTrigger/>
-      <div>{dashboard}</div>
+      <div>This is home</div>
       </section>
       <section className="col-md-7 col-sm-12 col-md-offset-5 main-content modal-container">
       </section>

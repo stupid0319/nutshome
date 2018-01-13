@@ -12,8 +12,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onCategoryClick: categoryName => dispatch(setActiveCategory(categoryName))
 })
 
-const MenuCategory = ({ children, category, onCategoryClick, activeCategory }) => (
-  <li className="menu-category-item">
+const MenuCategory = ({ children, category, onCategoryClick, activeCategory, key }) => (
+  <li
+    className="menu-category-item"
+    key={key}
+  >
     <i className={"fa fa-chevron-right" + (activeCategory === children?" chevron-expanded":" chevron")}/>
     <a
       role="button"
@@ -28,6 +31,7 @@ const MenuCategory = ({ children, category, onCategoryClick, activeCategory }) =
         fileId = {item.fileId}
         index = {item.index}
         expanded = {activeCategory === children}
+        key = {item.fileId}
       />
     ))}
     </ul>

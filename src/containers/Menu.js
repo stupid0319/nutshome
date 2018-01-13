@@ -36,6 +36,7 @@ const Menu = ({ menuClassName, categoryNames, categorys, onCategoryClick }) => (
         return (
           <MenuCategory
             category = {categorys[item]}
+            key = {i.toString()}
           >
           {item}
           </MenuCategory>);

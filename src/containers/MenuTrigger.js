@@ -23,7 +23,7 @@ const MenuTrigger = ({ onClick, menuVisible}) => (
   </a>
 )
 
-MenuTrigger.PropTypes = {
+MenuTrigger.propTypes = {
   menuVisible: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
 }
