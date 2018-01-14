@@ -4,6 +4,7 @@ export const SET_MENU_COLLAPSE = 'SET_MENU_COLLAPSE'
 export const SAVE_DASHBOARD = 'SAVE_DASHBOARD'
 export const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 export const SAVE_MENU_CATEGORY = 'SAVE_MENU_CATEGORY'
+export const SET_ACTIVE_HOME_PANEL = 'SET_ACTIVE_HOME_PANEL'
 
 export const setMenuCollapse = menuVisible => ({
   type: SET_MENU_COLLAPSE,
@@ -35,6 +36,11 @@ const saveMenuCategory = categorys => ({
 export const setActiveCategory = activeCategory => ({
   type: SET_ACTIVE_CATEGORY,
   activeCategory
+})
+
+export const setActiveHomePanel = activeHomePanel => ({
+  type: SET_ACTIVE_HOME_PANEL,
+  activeHomePanel
 })
 
 export const loadDashBoard = () => dispatch => (

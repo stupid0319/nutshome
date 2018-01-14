@@ -21,7 +21,6 @@ class Article extends React.Component {
     super();
     this.state = {
       DocBody: "",
-      FbAjax: '<script type="text/javascript"> FB.XFBML.parse(); </script>'
     }
     this.loadDoc = this.loadDoc.bind(this);
   }
@@ -29,7 +28,10 @@ class Article extends React.Component {
   loadDoc(fileId) {
     fetch(DocUrl(fileId))
     .then(response => response.text())
-    .then(text => this.setState({ DocBody: text }))
+    .then(text => {
+      this.setState({ DocBody: text });
+      FB.XFBML.parse();
+      })
     .catch(error => console.log(error));
   }
 
@@ -52,7 +54,6 @@ class Article extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.DocBody === "") {
-      FB.XFBML.parse()
       return true
     }
     if (nextProps.match.params.index !== this.props.match.params.index) {
@@ -64,8 +65,7 @@ class Article extends React.Component {
 
   render() {
     const { menuVisible, dashboard, match, location } = this.props
-    const { DocBody, FbAjax } = this.state
-    const createMarkup = () => ({__html: DocBody + FbAjax})
+    const { DocBody } = this.state
     var headerStyle
     if (dashboard[match.params.index] !== undefined) {
       headerStyle = {
@@ -85,7 +85,7 @@ class Article extends React.Component {
           <Row>
             <div
               className="col-xs-12 single-content"
-              dangerouslySetInnerHTML={createMarkup()} />
+              dangerouslySetInnerHTML={{ __html: DocBody }} />
           </Row>
         </main>
         <div
@@ -95,8 +95,8 @@ class Article extends React.Component {
           data-show-faces="true">
         </div>
         <div
-          className={('fb-comments col-xs-12 single-content')}
-          data-href={`http://122.117.78.26:3000/${location.pathname}`}
+          className='fb-comments col-xs-12 single-content'
+          data-href={`http://122.117.78.26:3000/${match.params.fileId}`}
           data-numposts="5"
           data-width = '100%'
         />

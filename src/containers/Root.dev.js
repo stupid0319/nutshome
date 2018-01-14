@@ -7,6 +7,7 @@ import App from './App'
 import Menu from './Menu'
 import Home from './Home'
 import Article from './Article'
+import Category from './Category'
 import { loadDashBoard } from '../actions'
 
 class Root extends React.Component {
@@ -28,8 +29,9 @@ class Root extends React.Component {
         <BrowserRouter>
           <div id="app-mount">
             <Menu/>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Home}/>
             <Route path='/article/:index/:fileId' component={Article}/>
+            <Route path='/category/:filter' component={Category}/>
             <DevTools />
           </div>
         </BrowserRouter>
