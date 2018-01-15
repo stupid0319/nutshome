@@ -8,6 +8,7 @@ import Menu from './Menu'
 import Home from './Home'
 import Article from './Article'
 import Category from './Category'
+import Contact from './Contact'
 import { loadDashBoard } from '../actions'
 
 class Root extends React.Component {
@@ -32,6 +33,7 @@ class Root extends React.Component {
             <Route exact path="/" component={Home}/>
             <Route path='/article/:index/:fileId' component={Article}/>
             <Route path='/category/:filter' component={Category}/>
+            <Route path='/Contact' component={Contact}/>
             <DevTools />
           </div>
         </BrowserRouter>

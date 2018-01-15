@@ -1,16 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 /*global FB*/
-
-const mapStateToProps = (state, ownProps) => ({
-
-})
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-
-})
 
 class Post extends React.Component {
   componentDidMount() {
@@ -39,5 +30,4 @@ class Post extends React.Component {
   }
 }
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(Post)
+export default Post

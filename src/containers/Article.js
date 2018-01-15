@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { DocUrl, ImageUrl } from '../actions'
 import MenuTrigger from './MenuTrigger'
 import { Row } from 'react-bootstrap'
+import Footer from './footer/Footer'
 /*global FB*/
 
 
@@ -31,6 +32,7 @@ class Article extends React.Component {
     .then(text => {
       this.setState({ DocBody: text });
       FB.XFBML.parse();
+      window.scrollTo(0, 0);
       })
     .catch(error => console.log(error));
   }
@@ -66,11 +68,12 @@ class Article extends React.Component {
   render() {
     const { menuVisible, dashboard, match, location } = this.props
     const { DocBody } = this.state
-    var headerStyle
-    if (dashboard[match.params.index] !== undefined) {
-      headerStyle = {
+
+    if (dashboard[match.params.index] === undefined) {
+      return (<div></div>)
+    }
+    var headerStyle = {
         backgroundImage: `url(${ImageUrl(dashboard[match.params.index].gsx$imageid.$t)})`
-      };
     }
 
     return (
@@ -87,18 +90,21 @@ class Article extends React.Component {
               className="col-xs-12 single-content"
               dangerouslySetInnerHTML={{ __html: DocBody }} />
           </Row>
+          <div
+            className="fb-like col-xs-12 single-content"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
+          <div
+            className='fb-comments col-xs-12 single-content'
+            data-href={`http://122.117.78.26:3000/${match.params.fileId}`}
+            data-numposts="5"
+            data-width = '100%'
+          />
         </main>
-        <div
-          className="fb-like col-xs-12 single-content"
-          data-share="true"
-          data-width="450"
-          data-show-faces="true">
-        </div>
-        <div
-          className='fb-comments col-xs-12 single-content'
-          data-href={`http://122.117.78.26:3000/${match.params.fileId}`}
-          data-numposts="5"
-          data-width = '100%'
+        <Footer
+          match = {match}
         />
       </div>
     )
