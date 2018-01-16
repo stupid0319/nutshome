@@ -5,6 +5,7 @@ import { ImageUrl, setActiveHomePanel } from '../actions'
 import Categories from "./lists/Categories"
 import Posts from "./lists/Posts"
 import MenuTrigger from "./MenuTrigger"
+import DocumentTitle from 'react-document-title'
 
 const mapStateToProps = (state, ownProps) => ({
   menuVisible: state.menuVisible,
@@ -43,12 +44,13 @@ class Category extends React.Component {
       imageId = categories[match.params.filter][0].imageId
     }
     return (
+      <DocumentTitle title={`兩姊妹堅果-${match.params.filter}`}>
       <main className={`container page-fadein left-container page-home ${menuVisible? "container-menu-open":"container-menu-closed"}`}>
         <div className="row">
           <section className="sidebar col-md-5 col-sm-12" style={divStyle(imageId)}>
           <MenuTrigger/>
-          <div class="site-info">
-            <div class="primary-info">
+          <div className="site-info">
+            <div className="primary-info">
               <h1>{match.params.filter}</h1><p/><p/>
             </div>
           </div>
@@ -73,6 +75,7 @@ class Category extends React.Component {
           </section>
         </div>
       </main>
+      </DocumentTitle>
     )
   }
 }

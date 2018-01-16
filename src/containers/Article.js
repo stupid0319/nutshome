@@ -5,6 +5,7 @@ import { DocUrl, ImageUrl } from '../actions'
 import MenuTrigger from './MenuTrigger'
 import { Row } from 'react-bootstrap'
 import Footer from './footer/Footer'
+import DocumentTitle from 'react-document-title'
 /*global FB*/
 
 
@@ -77,6 +78,7 @@ class Article extends React.Component {
     }
 
     return (
+      <DocumentTitle title={`兩姊妹堅果-${dashboard[match.params.index].gsx$title.$t}`}>
       <div
         className={('container page-fadein page-article container-menu-'+(menuVisible?'open':'closed'))}
       >
@@ -94,19 +96,22 @@ class Article extends React.Component {
             className="fb-like col-xs-12 single-content"
             data-share="true"
             data-width="450"
-            data-show-faces="true">
-          </div>
+            data-show-faces="true"
+            data-colorscheme = 'light'
+          />
           <div
             className='fb-comments col-xs-12 single-content'
             data-href={`http://122.117.78.26:3000/${match.params.fileId}`}
             data-numposts="5"
             data-width = '100%'
+            data-colorscheme = 'light'
           />
         </main>
         <Footer
           match = {match}
         />
       </div>
+      </DocumentTitle>
     )
   }
 }

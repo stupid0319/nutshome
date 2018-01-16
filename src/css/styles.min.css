@@ -3183,7 +3183,7 @@ a.menu-trigger span{
     }
 }
 #menu{
-    background-color:#333;
+    background-color:#8E2800;
     overflow:hidden;
     z-index:1;
     display:block;
@@ -3197,16 +3197,16 @@ a.menu-trigger span{
 }
 #menu li i{
     padding:0 20px;
-    color:#DADADA
+    color:#FFB03B
 }
 #menu li a{
-    color:#DADADA;
+    color:#FFF0A5;
     font-weight:500;
     font-size:large
 }
 #menu li a:hover{
     border-bottom:none;
-    color:#fff
+    color:#FFF0A5
 }
 #menu li.menu-articles-item{
     padding-bottom:1px;
@@ -5749,4 +5749,9 @@ form input#send-message[type=button]:hover,form input[type=submit]:hover{
     font-weight:700;
     src:local('Source Sans Pro Bold'),local('SourceSansPro-Bold'),url(http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGEo0As1BFRXtCDhS66znb_k.woff2) format('woff2');
     unicode-range:U0 0FF,U131,U152 -153,U2C6,U2DA,U2DC,U2000 -206F,U2074,U20AC,U2212,U2215,UE0FF,UEFFD,UF000
+}
+
+span.c0, span.c1,span.c2, span.c3, span.c4, span.c5 {
+  color:#8E2800;
+  background-color:#FFF0A5
 }

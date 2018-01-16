@@ -3,7 +3,7 @@ import Credits from './Credits'
 import ReadOther from './ReadOther'
 
 const Footer = ({ match }) => (
-  <footer className="single">
+  <footer className="single" style={{'background-color':"#FFB03B"}}>
     <Credits
       match = {match}
     />

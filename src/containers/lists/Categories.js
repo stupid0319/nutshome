@@ -13,7 +13,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 const Categories = ({ categories, categoryNames, activeHomePanel }) => (
-  <div className={"home-page-categories" + ((activeHomePanel === 'categories') ? ' section-fadein' : ' hide')}>
+  <div
+    className={"home-page-categories" + ((activeHomePanel === 'categories') ? ' section-fadein' : ' hide')}
+    >
     <div className="category row">
       <section>
         {categoryNames.map((category,i) => {

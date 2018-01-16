@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 import MenuTrigger from './MenuTrigger'
+import DocumentTitle from 'react-document-title'
 
 const coords = {
   lat: 23.798475,
@@ -13,8 +14,6 @@ const params = {v: '3.exp', key: 'AIzaSyDWE3PSLDcqfL_5Hf86Cs05sTCazMETV6o'};
 
 const mapStateToProps = (state, ownProps) => ({
   menuVisible: state.menuVisible,
-  width: window.innerWidth,
-  height: window.innerHeight
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -58,9 +57,8 @@ class Contact extends React.Component {
   render() {
     const { menuVisible } = this.props
     return (
-      <div
-        className={('container page-fadein page-article container-menu-'+(menuVisible?'open':'closed'))}
-        >
+      <DocumentTitle title="兩姊妹堅果-連絡我們">
+      <div className={('container page-fadein page-article container-menu-'+(menuVisible?'open':'closed'))}>
         <MenuTrigger/>
         <Gmaps
           width={menuVisible?window.innerWidth*0.75:window.innerWidth}
@@ -92,6 +90,7 @@ class Contact extends React.Component {
           />
         </Gmaps>
       </div>
+      </DocumentTitle>
     );
   }
 };

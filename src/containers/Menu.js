@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 const mapStateToProps = (state, ownProps) => ({
-  menuClassName: state.menuVisible? "menu-open":"menu-collapsed",
+  menuVisible: state.menuVisible,
   categoryNames: Object.keys(state.menuCategory.categories),
   categories:state.menuCategory.categories
 })
@@ -14,8 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
-const Menu = ({ menuClassName, categoryNames, categories, onCategoryClick }) => (
-  <div id="menu" className={menuClassName}>
+const Menu = ({ menuVisible, categoryNames, categories, onCategoryClick }) => (
+  <div id="menu" className={menuVisible? "menu-open":"menu-collapsed"}>
     <ul>
       <li>
         <i className="fa fa-home"/>

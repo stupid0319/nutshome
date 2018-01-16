@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { setActiveHomePanel } from '../actions'
 import Posts from './lists/Posts'
 import Categories from './lists/Categories'
+import DocumentTitle from 'react-document-title'
 
 const mapStateToProps = (state, ownProps) => ({
   menuVisible: state.menuVisible,
@@ -22,8 +23,8 @@ var divStyle = {
   msTransition: 'all' // 'ms' is the only lowercase vendor prefix
 };
 
-const Home = ({ mainClassName, dashboard,
-  activeHomePanel, setActivePanel, menuVisible }) => (
+const Home = ({ dashboard, activeHomePanel, setActivePanel, menuVisible }) => (
+  <DocumentTitle title={'兩姊妹堅果-首頁'}>
   <main className={`container page-fadein left-container page-home ${menuVisible? "container-menu-open":"container-menu-closed"}`}>
     <div className="row">
       <section className="sidebar col-md-5 col-sm-12" style={divStyle}>
@@ -49,6 +50,7 @@ const Home = ({ mainClassName, dashboard,
       </section>
     </div>
   </main>
+  </DocumentTitle>
 )
 
 export default connect(mapStateToProps,mapDispatchToProps)(Home)
