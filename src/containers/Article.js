@@ -60,6 +60,7 @@ class Article extends React.Component {
       return true
     }
     if (nextProps.match.params.index !== this.props.match.params.index) {
+      // eslint-disable-next-line
       this.state.DocBody = ""
       return false
     }
@@ -86,7 +87,6 @@ class Article extends React.Component {
           <MenuTrigger/>
         </header>
         <main>
-          <h1></h1>
           <Row>
             <div
               className="col-xs-12 single-content"

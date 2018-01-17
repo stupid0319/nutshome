@@ -10,6 +10,7 @@ import Article from './Article'
 import Category from './Category'
 import Contact from './Contact'
 import { loadDashBoard } from '../actions'
+import About from './About'
 
 class Root extends React.Component {
   static propTypes = {
@@ -34,6 +35,7 @@ class Root extends React.Component {
             <Route path='/article/:index/:fileId' component={Article}/>
             <Route path='/category/:filter' component={Category}/>
             <Route path='/Contact' component={Contact}/>
+            <Route path='/about' component={About}/>
           </div>
         </BrowserRouter>
       </Provider>

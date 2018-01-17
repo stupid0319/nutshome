@@ -61,6 +61,7 @@ export const loadDashBoard = () => dispatch => (
         imageId:item.gsx$imageid.$t,
         lastUpdated:item.gsx$lastupdated.$t,
       });
+      return true;
     })
     dispatch(saveMenuCategory(categorys));
   })

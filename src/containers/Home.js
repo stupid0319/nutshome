@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MenuTrigger from './MenuTrigger'
 import { connect } from 'react-redux'
-import { setActiveHomePanel } from '../actions'
+import { setActiveHomePanel, ImageUrl } from '../actions'
 import Posts from './lists/Posts'
 import Categories from './lists/Categories'
 import DocumentTitle from 'react-document-title'
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 var divStyle = {
   color: 'white',
-  backgroundImage: 'url(' + 'https://raw.githubusercontent.com/misterfresh/react-drive-cms/gh-pages/images/default-sidebar.jpg' + ')',
+  backgroundImage: `url(${ImageUrl("120knbYPE1P68JdOkmvSWgW-ArQT0ZdvI")})`,
   WebkitTransition: 'all', // note the capital 'W' here
   msTransition: 'all' // 'ms' is the only lowercase vendor prefix
 };
