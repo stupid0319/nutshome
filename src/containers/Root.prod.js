@@ -31,11 +31,11 @@ class Root extends React.Component {
         <BrowserRouter>
           <div id="app-mount">
             <Menu/>
-            <Route exact path="/" component={Home}/>
-            <Route path='/article/:index/:fileId' component={Article}/>
-            <Route path='/category/:filter' component={Category}/>
-            <Route path='/Contact' component={Contact}/>
-            <Route path='/about' component={About}/>
+            <Route exact path="/nutshome/" component={Home}/>
+            <Route path='/nutshome/article/:index/:fileId' component={Article}/>
+            <Route path='/nutshome/category/:filter' component={Category}/>
+            <Route path='/nutshome/Contact' component={Contact}/>
+            <Route path='/nutshome/about' component={About}/>
           </div>
         </BrowserRouter>
       </Provider>
